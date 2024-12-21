@@ -3,8 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solix Unblocked Games</title>
-    <link rel="stylesheet" href="style.css">
+    <title>MathPunch</title>
+    <style>
+        /* Loading screen styles */
+        #loadingScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black; /* Black background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 2s ease; /* Fade-out transition */
+        }
+
+        .loader {
+            border: 4px solid white; /* Solid white border */
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            animation: spin 1s linear infinite;
+            border-top-color: transparent; /* Make top section of the circle transparent */
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Fade out animation */
+        #loadingScreen.fadeOut {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            padding-bottom: 60px;
+            background-color: #1a1a1a;
+            color: white;
+            overflow: hidden; /* Disable scrolling initially */
+        }
+
+        h1 {
+            margin: 20px 0;
+            font-size: 1.5em;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        h2, button, footer {
+            font-family: 'Arial', sans-serif;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-y: auto;
+            max-height: 80vh;
+            width: 100%;
+        }
+
+        button {
+            margin: 15px 0;
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 10px;
+            text-align: center;
+            background-color: #1a1a1a;
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <!-- Loading screen -->
@@ -12,9 +112,7 @@
         <div class="loader"></div>
     </div>
 
-    <div class="main"></div>
-
-    <h1>Welcome To Solix Unblocked Games</h1>
+    <h1>Welcome To MathPunch V2</h1>
     <div class="button-container">
         <h2>Games</h2>
         <button onclick="window.location.href='https://mathpunch.github.io/grasshopper/';">Roblox</button>
@@ -33,10 +131,11 @@
         <button onclick="window.location.href='https://mathpunch.github.io/monkey/';">Trash Truck Simulator</button>
 
         <h2>Games For Emulator JS</h2>
-        <button onclick="window.location.href='https://github.com/ixlmathgg/flashy/raw/main/Mario Kart.zip';">DS: Mario Kart</button>
-        <button onclick="window.location.href='https://github.com/ixlmathgg/Licky/raw/main/Pokemon Red Fire.zip';">GBA: Pokémon Red Fire</button>
-        <button onclick="window.location.href='https://github.com/mathpunch/didactic-fortnight/raw/refs/heads/main/LEGO Star Wars II.zip';">GBA: Lego Star Wars II</button>
+        <button onclick="window.location.href='https://github.com/ixlmathgg/flashy/raw/main/Mario%20Kart.zip';">DS: Mario Kart</button>
+        <button onclick="window.location.href='https://github.com/ixlmathgg/Licky/raw/main/Pokemon%20Red%20Fire.zip';">GBA: Pokémon Red Fire</button>
+        <button onclick="window.location.href='https://github.com/mathpunch/didactic-fortnight/raw/refs/heads/main/LEGO%20Star%20Wars%20II.zip';">GBA: Lego Star Wars II</button>
 
+        <!-- Proxy Section -->
         <h2>Proxy</h2>
         <button onclick="alert('A Proxy is A Website That You Can Go On Almost Any Websites'); window.location.href='http://campus.rocketpride.com';">Server 1</button>
         <button onclick="alert('A Proxy is A Website That You Can Go On Almost Any Websites'); window.location.href='http://classroom.rocketpride.com';">Server 2</button>
@@ -49,6 +148,7 @@
         <button onclick="alert('A Proxy is A Website That You Can Go On Almost Any Websites'); window.location.href='http://resources.rocketpride.com';">Server 9</button>
         <button onclick="alert('A Proxy is A Website That You Can Go On Almost Any Websites'); window.location.href='http://studyhub.rocketpride.com';">Server 10</button>
 
+        <!-- Extra Section -->
         <h2>Extra</h2>
         <button onclick="window.location.href='https://auditor.rocketpride.com';">Another Unblocked Game Website</button>
         <button onclick="window.location.href='https://mathpunch.github.io/mouse';">Mathpunch V3 Beta</button>
