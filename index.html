@@ -115,19 +115,7 @@
             background-color: white;
             display: none; /* Hide initially */
             z-index: 9998; /* Behind loading screen */
-        }
-
-        #closeButton {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            background-color: red;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            z-index: 9999; /* Above iframe */
-            display: none; /* Hide initially */
+            overflow: auto; /* Enable scrolling */
         }
     </style>
 </head>
@@ -147,7 +135,6 @@
         <button onclick="loadGame('https://mathpunch.github.io/bear/');">Tiny Fishing</button>
         <button onclick="loadGame('https://mathpunch.github.io/snake/');">Tap Tap Shots</button>
         <button onclick="loadGame('https://mathpunch.github.io/shark/');">Drive Mad</button>
-        <button onclick="loadGame('https://mathpunch.github.io/zebra/');">Emulator JS</button>
         <button onclick="loadGame('https://mathpunch.github.io/turtle/');">Wordle Unlimited</button>
         <button onclick="loadGame('https://mathpunch.github.io/doggy/');">Fruit Ninja</button>
         <button onclick="loadGame('https://mathpunch.github.io/fox/');">Rooftop Snipers</button>
@@ -156,9 +143,9 @@
         <button onclick="loadGame('https://mathpunch.github.io/monkey/');">Trash Truck Simulator</button>
 
         <h2>Games For Emulator JS</h2>
-        <button onclick="loadGame('https://github.com/ixlmathgg/flashy/raw/main/Mario%20Kart.zip');">DS: Mario Kart</button>
-        <button onclick="loadGame('https://github.com/ixlmathgg/Licky/raw/main/Pokemon%20Red%20Fire.zip');">GBA: Pokémon Red Fire</button>
-        <button onclick="loadGame('https://github.com/mathpunch/didactic-fortnight/raw/refs/heads/main/LEGO%20Star%20Wars%20II.zip');">GBA: Lego Star Wars II</button>
+        <button onclick="redirect('https://github.com/ixlmathgg/flashy/raw/main/Mario%20Kart.zip');">DS: Mario Kart</button>
+        <button onclick="redirect('https://github.com/ixlmathgg/Licky/raw/main/Pokemon%20Red%20Fire.zip');">GBA: Pokémon Red Fire</button>
+        <button onclick="redirect('https://github.com/mathpunch/didactic-fortnight/raw/refs/heads/main/LEGO%20Star%20Wars%20II.zip');">GBA: Lego Star Wars II</button>
 
         <!-- Proxy Section -->
         <h2>Proxy</h2>
@@ -198,7 +185,6 @@
     </div>
 
     <iframe id="gameFrame"></iframe>
-    <button id="closeButton" onclick="closeGame()">Close Game</button>
 
     <footer>
         Made By Ozzy
@@ -217,23 +203,59 @@
 
         function loadGame(url) {
             var frame = document.getElementById('gameFrame');
-            var closeButton = document.getElementById('closeButton');
             frame.src = url;
             frame.style.display = 'block'; // Show iframe
-            closeButton.style.display = 'block'; // Show close button
-        }
-
-        function closeGame() {
-            var frame = document.getElementById('gameFrame');
-            var closeButton = document.getElementById('closeButton');
-            frame.src = '';
-            frame.style.display = 'none'; // Hide iframe
-            closeButton.style.display = 'none'; // Hide close button
+            history.pushState({url: url}, '', url); // Add state to history
         }
 
         function redirect(url) {
             window.location.href = url;
         }
+
+        // Handle browser back button
+        window.onpopstate = function(event) {
+            var frame = document.getElementById('gameFrame');
+            if (event.state) {
+                frame.src = event.state.url;
+                frame.style.display = 'block';
+            } else {
+                frame.src = '';
+                frame.style.display = 'none';
+            }
+        };
+
+        // Close iframe on Escape key press (desktop)
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                var frame = document.getElementById('gameFrame');
+                frame.src = '';
+                frame.style.display = 'none';
+                history.pushState(null, '', window.location.pathname);
+            }
+        });
+
+        // Close iframe on swipe down (mobile)
+        let touchstartY = 0;
+        let touchendY = 0;
+        const swipeThreshold = 100; // Minimum swipe distance to close
+
+        function handleGesture() {
+            if (touchendY > touchstartY + swipeThreshold) {
+                var frame = document.getElementById('gameFrame');
+                frame.src = '';
+                frame.style.display = 'none';
+                history.pushState(null, '', window.location.pathname);
+            }
+        }
+
+        document.addEventListener('touchstart', function(event) {
+            touchstartY = event.changedTouches[0].screenY;
+        }, false);
+
+        document.addEventListener('touchend', function(event) {
+            touchendY = event.changedTouches[0].screenY;
+            handleGesture();
+        }, false);
     </script>
 </body>
 </html>
