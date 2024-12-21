@@ -53,7 +53,7 @@
             margin: 0;
             padding: 20px;
             padding-bottom: 60px;
-            background-color: #8B0000; /* Dark Red Background */
+            background-color: #1a1a1a;
             color: white;
             overflow: hidden; /* Disable scrolling initially */
         }
@@ -101,21 +101,8 @@
             right: 0;
             padding: 10px;
             text-align: center;
-            background-color: #8B0000; /* Dark Red Background */
+            background-color: #1a1a1a;
             color: white;
-        }
-
-        #gameFrame {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-            background-color: white;
-            display: none; /* Hide initially */
-            z-index: 9998; /* Behind loading screen */
-            overflow: auto; /* Enable scrolling */
         }
     </style>
 </head>
@@ -128,63 +115,62 @@
     <h1>Welcome To MathPunch V2</h1>
     <div class="button-container">
         <h2>Games</h2>
-        <button onclick="loadGame('https://mathpunch.github.io/grasshopper/');">Roblox</button>
-        <button onclick="loadGame('https://mathpunch.github.io/panda/');">BitLife</button>
-        <button onclick="loadGame('https://mathpunch.github.io/kitty/');">Stickmanhook</button>
-        <button onclick="loadGame('https://mathpunch.github.io/dog/');">Super Mario 64</button>
-        <button onclick="loadGame('https://mathpunch.github.io/bear/');">Tiny Fishing</button>
-        <button onclick="loadGame('https://mathpunch.github.io/snake/');">Tap Tap Shots</button>
-        <button onclick="loadGame('https://mathpunch.github.io/shark/');">Drive Mad</button>
-        <button onclick="loadGame('https://mathpunch.github.io/turtle/');">Wordle Unlimited</button>
-        <button onclick="loadGame('https://mathpunch.github.io/doggy/');">Fruit Ninja</button>
-        <button onclick="loadGame('https://mathpunch.github.io/fox/');">Rooftop Snipers</button>
-        <button onclick="loadGame('https://mathpunch.github.io/bat/');">Tunnel Rush</button>
-        <button onclick="loadGame('https://mathpunch.github.io/wolf/');">Burrito Bison</button>
-        <button onclick="loadGame('https://mathpunch.github.io/monkey/');">Trash Truck Simulator</button>
+        <button onclick="window.location.href='https://mathpunch.github.io/grasshopper/';">Roblox</button>
+        <button onclick="window.location.href='https://mathpunch.github.io/panda/';">BitLife</button>
+        <button onclick="window.location.href='https://mathpunch.github.io/kitty/';">Stickmanhook</button>
+        <button onclick="window.location.href='https://mathpunch.github.io/dog/';">Super Mario 64</button>
+        <button onclick="window.location.href='https://mathpunch.github.io/bear/';">Tiny Fishing</button>
+        <button onclick="window.location.href='https://mathpunch.github.io/snake/';">Tap Tap Shots</button>
+        <button onclick="window.location.href='https://mathpunch.github.io/shark/';">Drive Mad</button>
+        <button onclick="window.location.href='https://mathpunch.github.io/zebra/';">Emulator JS</button>
+        <button onclick="window.location.href='https://mathpunch.github.io/turtle/';">Wordle Unlimited</button>
+        <button onclick="window.location.href='https://mathpunch.github.io/doggy/';">Fruit Ninja</button>
+        <button onclick="window.location.href='https://mathpunch.github.io/fox/';">Rooftop Snipers</button>
+        <button onclick="window.location.href='https://mathpunch.github.io/bat/';">Tunnel Rush</button>
+        <button onclick="window.location.href='https://mathpunch.github.io/wolf/';">Burrito Bison</button>
+        <button onclick="window.location.href='https://mathpunch.github.io/monkey/';">Trash Truck Simulator</button>
 
         <h2>Games For Emulator JS</h2>
-        <button onclick="redirect('https://github.com/ixlmathgg/flashy/raw/main/Mario%20Kart.zip');">DS: Mario Kart</button>
-        <button onclick="redirect('https://github.com/ixlmathgg/Licky/raw/main/Pokemon%20Red%20Fire.zip');">GBA: Pokémon Red Fire</button>
-        <button onclick="redirect('https://github.com/mathpunch/didactic-fortnight/raw/refs/heads/main/LEGO%20Star%20Wars%20II.zip');">GBA: Lego Star Wars II</button>
+        <button onclick="window.location.href='https://github.com/ixlmathgg/flashy/raw/main/Mario%20Kart.zip';">DS: Mario Kart</button>
+        <button onclick="window.location.href='https://github.com/ixlmathgg/Licky/raw/main/Pokemon%20Red%20Fire.zip';">GBA: Pokémon Red Fire</button>
+        <button onclick="window.location.href='https://github.com/mathpunch/didactic-fortnight/raw/refs/heads/main/LEGO%20Star%20Wars%20II.zip';">GBA: Lego Star Wars II</button>
 
         <!-- Proxy Section -->
         <h2>Proxy</h2>
-        <button onclick="redirect('http://campus.rocketpride.com');">Server 1</button>
-        <button onclick="redirect('http://classroom.rocketpride.com');">Server 2</button>
-        <button onclick="redirect('http://library.rocketpride.com');">Server 3</button>
-        <button onclick="redirect('http://portal.rocketpride.com');">Server 4</button>
-        <button onclick="redirect('http://scholar.rocketpride.com');">Server 5</button>
-        <button onclick="redirect('http://academy.rocketpride.com');">Server 6</button>
-        <button onclick="redirect('http://learn.rocketpride.com');">Server 7</button>
-        <button onclick="redirect('http://projects.rocketpride.com');">Server 8</button>
-        <button onclick="redirect('http://resources.rocketpride.com');">Server 9</button>
-        <button onclick="redirect('http://studyhub.rocketpride.com');">Server 10</button>
+        <button onclick="alert('A Proxy is A Website That You Can Go On Almost Any Websites'); window.location.href='http://campus.rocketpride.com';">Server 1</button>
+        <button onclick="alert('A Proxy is A Website That You Can Go On Almost Any Websites'); window.location.href='http://classroom.rocketpride.com';">Server 2</button>
+        <button onclick="alert('A Proxy is A Website That You Can Go On Almost Any Websites'); window.location.href='http://library.rocketpride.com';">Server 3</button>
+        <button onclick="alert('A Proxy is A Website That You Can Go On Almost Any Websites'); window.location.href='http://portal.rocketpride.com';">Server 4</button>
+        <button onclick="alert('A Proxy is A Website That You Can Go On Almost Any Websites'); window.location.href='http://scholar.rocketpride.com';">Server 5</button>
+        <button onclick="alert('A Proxy is A Website That You Can Go On Almost Any Websites'); window.location.href='http://academy.rocketpride.com';">Server 6</button>
+        <button onclick="alert('A Proxy is A Website That You Can Go On Almost Any Websites'); window.location.href='http://learn.rocketpride.com';">Server 7</button>
+        <button onclick="alert('A Proxy is A Website That You Can Go On Almost Any Websites'); window.location.href='http://projects.rocketpride.com';">Server 8</button>
+        <button onclick="alert('A Proxy is A Website That You Can Go On Almost Any Websites'); window.location.href='http://resources.rocketpride.com';">Server 9</button>
+        <button onclick="alert('A Proxy is A Website That You Can Go On Almost Any Websites'); window.location.href='http://studyhub.rocketpride.com';">Server 10</button>
 
         <!-- Extra Section -->
         <h2>Extra</h2>
-        <button onclick="redirect('https://auditor.rocketpride.com');">Another Unblocked Game Website</button>
-        <button onclick="redirect('https://mathpunch.github.io/mouse');">Mathpunch V3 Beta</button>
+        <button onclick="window.location.href='https://auditor.rocketpride.com';">Another Unblocked Game Website</button>
+        <button onclick="window.location.href='https://mathpunch.github.io/mouse';">Mathpunch V3 Beta</button>
 
         <h2>MathPunch AI</h2>
-        <button onclick="redirect('https://mathpunch.github.io/crab');">Click Me</button>
+        <button onclick="window.location.href='https://mathpunch.github.io/crab';">Click Me</button>
 
         <h2>Games Requests</h2>
-        <button onclick="redirect('https://docs.google.com/forms/d/e/1FAIpQLSc6PG1pB-SmSDqf_gJ_DYWV5HWFtGCcWpgGf2EaS0EpKcICqQ/viewform?usp=sf_link');">Click Me</button>
+        <button onclick="window.location.href='https://docs.google.com/forms/d/e/1FAIpQLSc6PG1pB-SmSDqf_gJ_DYWV5HWFtGCcWpgGf2EaS0EpKcICqQ/viewform?usp=sf_link';">Click Me</button>
 
         <h2>Adblocker</h2>
-        <button onclick="redirect('https://www.icloud.com/shortcuts/60f5af18cbfe435f886450e6a4c332e5');">Click Me</button>
+        <button onclick="window.location.href='https://www.icloud.com/shortcuts/60f5af18cbfe435f886450e6a4c332e5';">Click Me</button>
 
         <h2>Chatting</h2>
-        <button onclick="redirect('https://sites.google.com/view/mathpunch');">Click Me</button>
+        <button onclick="window.location.href='https://sites.google.com/view/mathpunch';">Click Me</button>
 
         <h2>Backup Links</h2>
-        <button onclick="redirect('https://extramath.github.io/');">Click Me</button>
+        <button onclick="window.location.href='https://extramath.github.io/';">Click Me</button>
 
         <h2>Prank Shortcut</h2>
-        <button onclick="redirect('https://www.icloud.com/shortcuts/4e9a1be2aace434981f58226805be72f');">Click Me</button>
+        <button onclick="window.location.href='https://www.icloud.com/shortcuts/4e9a1be2aace434981f58226805be72f';">Click Me</button>
     </div>
-
-    <iframe id="gameFrame"></iframe>
 
     <footer>
         Made By Ozzy
@@ -200,62 +186,6 @@
                 document.body.style.overflow = 'auto'; // Enable scrolling
             }, 2000); // Wait for 2 seconds before fading out
         };
-
-        function loadGame(url) {
-            var frame = document.getElementById('gameFrame');
-            frame.src = url;
-            frame.style.display = 'block'; // Show iframe
-            history.pushState({url: url}, '', url); // Add state to history
-        }
-
-        function redirect(url) {
-            window.location.href = url;
-        }
-
-        // Handle browser back button
-        window.onpopstate = function(event) {
-            var frame = document.getElementById('gameFrame');
-            if (event.state) {
-                frame.src = event.state.url;
-                frame.style.display = 'block';
-            } else {
-                frame.src = '';
-                frame.style.display = 'none';
-            }
-        };
-
-        // Close iframe on Escape key press (desktop)
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                var frame = document.getElementById('gameFrame');
-                frame.src = '';
-                frame.style.display = 'none';
-                history.pushState(null, '', window.location.pathname);
-            }
-        });
-
-        // Close iframe on swipe down (mobile)
-        let touchstartY = 0;
-        let touchendY = 0;
-        const swipeThreshold = 100; // Minimum swipe distance to close
-
-        function handleGesture() {
-            if (touchendY > touchstartY + swipeThreshold) {
-                var frame = document.getElementById('gameFrame');
-                frame.src = '';
-                frame.style.display = 'none';
-                history.pushState(null, '', window.location.pathname);
-            }
-        }
-
-        document.addEventListener('touchstart', function(event) {
-            touchstartY = event.changedTouches[0].screenY;
-        }, false);
-
-        document.addEventListener('touchend', function(event) {
-            touchendY = event.changedTouches[0].screenY;
-            handleGesture();
-        }, false);
     </script>
 </body>
 </html>
