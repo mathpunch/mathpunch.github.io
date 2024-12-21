@@ -106,11 +106,28 @@
         }
 
         #gameFrame {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 70vh;
+            height: 100%;
             border: none;
             background-color: white;
-            margin-top: 20px;
+            display: none; /* Hide initially */
+            z-index: 9998; /* Behind loading screen */
+        }
+
+        #closeButton {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            z-index: 9999; /* Above iframe */
+            display: none; /* Hide initially */
         }
     </style>
 </head>
@@ -145,42 +162,43 @@
 
         <!-- Proxy Section -->
         <h2>Proxy</h2>
-        <button onclick="alert('A Proxy is A Website That You Can Go On Almost Any Websites'); loadGame('http://campus.rocketpride.com');">Server 1</button>
-        <button onclick="alert('A Proxy is A Website That You Can Go On Almost Any Websites'); loadGame('http://classroom.rocketpride.com');">Server 2</button>
-        <button onclick="alert('A Proxy is A Website That You Can Go On Almost Any Websites'); loadGame('http://library.rocketpride.com');">Server 3</button>
-        <button onclick="alert('A Proxy is A Website That You Can Go On Almost Any Websites'); loadGame('http://portal.rocketpride.com');">Server 4</button>
-        <button onclick="alert('A Proxy is A Website That You Can Go On Almost Any Websites'); loadGame('http://scholar.rocketpride.com');">Server 5</button>
-        <button onclick="alert('A Proxy is A Website That You Can Go On Almost Any Websites'); loadGame('http://academy.rocketpride.com');">Server 6</button>
-        <button onclick="alert('A Proxy is A Website That You Can Go On Almost Any Websites'); loadGame('http://learn.rocketpride.com');">Server 7</button>
-        <button onclick="alert('A Proxy is A Website That You Can Go On Almost Any Websites'); loadGame('http://projects.rocketpride.com');">Server 8</button>
-        <button onclick="alert('A Proxy is A Website That You Can Go On Almost Any Websites'); loadGame('http://resources.rocketpride.com');">Server 9</button>
-        <button onclick="alert('A Proxy is A Website That You Can Go On Almost Any Websites'); loadGame('http://studyhub.rocketpride.com');">Server 10</button>
+        <button onclick="redirect('http://campus.rocketpride.com');">Server 1</button>
+        <button onclick="redirect('http://classroom.rocketpride.com');">Server 2</button>
+        <button onclick="redirect('http://library.rocketpride.com');">Server 3</button>
+        <button onclick="redirect('http://portal.rocketpride.com');">Server 4</button>
+        <button onclick="redirect('http://scholar.rocketpride.com');">Server 5</button>
+        <button onclick="redirect('http://academy.rocketpride.com');">Server 6</button>
+        <button onclick="redirect('http://learn.rocketpride.com');">Server 7</button>
+        <button onclick="redirect('http://projects.rocketpride.com');">Server 8</button>
+        <button onclick="redirect('http://resources.rocketpride.com');">Server 9</button>
+        <button onclick="redirect('http://studyhub.rocketpride.com');">Server 10</button>
 
         <!-- Extra Section -->
         <h2>Extra</h2>
-        <button onclick="loadGame('https://auditor.rocketpride.com');">Another Unblocked Game Website</button>
-        <button onclick="loadGame('https://mathpunch.github.io/mouse');">Mathpunch V3 Beta</button>
+        <button onclick="redirect('https://auditor.rocketpride.com');">Another Unblocked Game Website</button>
+        <button onclick="redirect('https://mathpunch.github.io/mouse');">Mathpunch V3 Beta</button>
 
         <h2>MathPunch AI</h2>
-        <button onclick="loadGame('https://mathpunch.github.io/crab');">Click Me</button>
+        <button onclick="redirect('https://mathpunch.github.io/crab');">Click Me</button>
 
         <h2>Games Requests</h2>
-        <button onclick="loadGame('https://docs.google.com/forms/d/e/1FAIpQLSc6PG1pB-SmSDqf_gJ_DYWV5HWFtGCcWpgGf2EaS0EpKcICqQ/viewform?usp=sf_link');">Click Me</button>
+        <button onclick="redirect('https://docs.google.com/forms/d/e/1FAIpQLSc6PG1pB-SmSDqf_gJ_DYWV5HWFtGCcWpgGf2EaS0EpKcICqQ/viewform?usp=sf_link');">Click Me</button>
 
         <h2>Adblocker</h2>
-        <button onclick="loadGame('https://www.icloud.com/shortcuts/60f5af18cbfe435f886450e6a4c332e5');">Click Me</button>
+        <button onclick="redirect('https://www.icloud.com/shortcuts/60f5af18cbfe435f886450e6a4c332e5');">Click Me</button>
 
         <h2>Chatting</h2>
-        <button onclick="loadGame('https://sites.google.com/view/mathpunch');">Click Me</button>
+        <button onclick="redirect('https://sites.google.com/view/mathpunch');">Click Me</button>
 
         <h2>Backup Links</h2>
-        <button onclick="loadGame('https://extramath.github.io/');">Click Me</button>
+        <button onclick="redirect('https://extramath.github.io/');">Click Me</button>
 
         <h2>Prank Shortcut</h2>
-        <button onclick="loadGame('https://www.icloud.com/shortcuts/4e9a1be2aace434981f58226805be72f');">Click Me</button>
+        <button onclick="redirect('https://www.icloud.com/shortcuts/4e9a1be2aace434981f58226805be72f');">Click Me</button>
     </div>
 
     <iframe id="gameFrame"></iframe>
+    <button id="closeButton" onclick="closeGame()">Close Game</button>
 
     <footer>
         Made By Ozzy
@@ -198,7 +216,23 @@
         };
 
         function loadGame(url) {
-            document.getElementById('gameFrame').src = url;
+            var frame = document.getElementById('gameFrame');
+            var closeButton = document.getElementById('closeButton');
+            frame.src = url;
+            frame.style.display = 'block'; // Show iframe
+            closeButton.style.display = 'block'; // Show close button
+        }
+
+        function closeGame() {
+            var frame = document.getElementById('gameFrame');
+            var closeButton = document.getElementById('closeButton');
+            frame.src = '';
+            frame.style.display = 'none'; // Hide iframe
+            closeButton.style.display = 'none'; // Hide close button
+        }
+
+        function redirect(url) {
+            window.location.href = url;
         }
     </script>
 </body>
